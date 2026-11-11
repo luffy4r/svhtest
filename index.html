@@ -1,848 +1,1907 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EURL SVH | Spécialiste Vérin Hydraulique & Usinage - Ouled Moussa</title>
-  
-  <!-- Importation des polices Google : Montserrat (titres robustes) et Roboto (textes techniques) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EURL SVH — Hydraulique, Usinage & Chaudronnerie | Ouled Moussa, Boumerdès</title>
+<meta name="description" content="EURL SVH : expertise hydraulique, usinage de précision et chaudronnerie-soudure en Algérie. Atelier intégré à Ouled Moussa, Boumerdès. Devis sous 24h.">
+<meta name="theme-color" content="#111315">
+<meta property="og:title" content="EURL SVH — L'Expertise Hydraulique & Mécanique de Précision">
+<meta property="og:description" content="Fabrication, réparation et maintenance de systèmes hydrauliques et mécaniques. Interventions dans les 58 wilayas.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23111315'/%3E%3Ctext x='50' y='64' font-family='Montserrat,Arial,sans-serif' font-size='34' font-weight='900' text-anchor='middle'%3E%3Ctspan fill='%23F59E0B'%3ES%3C/tspan%3E%3Ctspan fill='%23E3242B'%3EV%3C/tspan%3E%3Ctspan fill='%23F59E0B'%3EH%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   EURL SVH — Design tokens
+   ============================================================ */
+:root{
+  --red:#E3242B;
+  --red-dark:#b91d23;
+  --red-soft:rgba(227,36,43,.12);
+  --orange:#F59E0B;
+  --orange-light:#fbbf24;
+  --orange-soft:rgba(245,158,11,.14);
+
+  --dark:#111315;
+  --dark-2:#171a1d;
+  --dark-3:#20242a;
+  --dark-line:rgba(255,255,255,.10);
+  --dark-line-strong:rgba(255,255,255,.18);
+
+  --light:#F4F5F7;
+  --light-2:#eceef1;
+  --white:#ffffff;
+  --ink:#1b1f24;
+  --ink-2:#3a424a;
+  --muted:#5f6873;
+  --line:rgba(17,19,21,.10);
+  --line-strong:rgba(17,19,21,.16);
+
+  --font-display:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --container:1200px;
+  --header-h:82px;
+  --radius-sm:10px;
+  --radius:16px;
+  --radius-lg:22px;
+
+  --shadow-sm:0 6px 20px -12px rgba(17,19,21,.35);
+  --shadow:0 24px 55px -30px rgba(17,19,21,.45);
+  --shadow-lg:0 40px 90px -45px rgba(17,19,21,.65);
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--light);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+body.nav-open{overflow:hidden}
+
+img{max-width:100%;display:block}
+svg{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
+
+::selection{background:var(--red);color:#fff}
+
+:focus-visible{
+  outline:3px solid rgba(245,158,11,.75);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+  border:0;
+}
+
+.skip-link{
+  position:absolute;
+  top:-100px;left:16px;
+  z-index:3000;
+  padding:12px 18px;
+  background:var(--red);
+  color:#fff;
+  font:700 .85rem/1 var(--font-display);
+  border-radius:0 0 10px 10px;
+  transition:top .25s var(--ease);
+}
+.skip-link:focus{top:0}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 clamp(18px,4vw,32px);
+}
+
+.section{padding:clamp(72px,9vw,118px) 0;position:relative}
+.section--light{background:var(--light)}
+.section--white{background:var(--white)}
+.section--dark{background:var(--dark);color:#fff}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font:800 .74rem/1 var(--font-display);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--red-dark);
+  margin-bottom:18px;
+}
+.eyebrow::before{
+  content:"";
+  width:26px;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  border-radius:2px;
+  flex:0 0 auto;
+}
+.section--dark .eyebrow{color:var(--orange)}
+.section--dark .eyebrow::before{background:linear-gradient(90deg,var(--orange),var(--red))}
+
+.section-title{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(1.85rem,3.6vw,3rem);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.section--dark .section-title{color:#fff}
+
+.section-lead{
+  margin-top:18px;
+  max-width:640px;
+  font-size:clamp(1rem,1.15vw,1.08rem);
+  color:var(--muted);
+}
+.section--dark .section-lead{color:rgba(255,255,255,.66)}
+
+.section-head{margin-bottom:clamp(38px,5vw,60px)}
+.section-head--center{text-align:center}
+.section-head--center .section-lead{margin-left:auto;margin-right:auto}
+
+.accent-red{color:var(--red)}
+.accent-orange{color:var(--orange)}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px 26px;
+  font:800 .82rem/1 var(--font-display);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border:2px solid transparent;
+  border-radius:10px;
+  cursor:pointer;
+  transition:transform .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+  white-space:nowrap;
+}
+.btn svg{width:17px;height:17px;flex:0 0 auto;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+
+.btn--primary{
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 16px 34px -18px rgba(227,36,43,.85);
+}
+.btn--primary:hover{
+  background:var(--red-dark);
+  transform:translateY(-3px);
+  box-shadow:0 22px 40px -18px rgba(227,36,43,.9);
+}
+
+.btn--outline{
+  background:transparent;
+  color:var(--orange);
+  border-color:var(--orange);
+}
+.btn--outline:hover{
+  background:var(--orange);
+  color:var(--dark);
+  transform:translateY(-3px);
+  box-shadow:0 18px 36px -20px rgba(245,158,11,.9);
+}
+
+.btn--light{
+  background:#fff;
+  color:var(--ink);
+}
+.btn--light:hover{background:var(--light-2);transform:translateY(-3px)}
+
+/* ============================================================
+   Header / navigation
+   ============================================================ */
+.site-header{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:1200;
+  background:linear-gradient(180deg, rgba(11,12,14,.86), rgba(11,12,14,.55) 70%, rgba(11,12,14,0));
+  transition:background-color .35s var(--ease), box-shadow .35s var(--ease), backdrop-filter .35s var(--ease);
+}
+.site-header.is-scrolled{
+  background:rgba(13,14,16,.96);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 14px 40px -28px rgba(0,0,0,.95);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  height:var(--header-h);
+}
+
+/* Brand + CSS-only circular logo */
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  flex:0 0 auto;
+}
+.logo{
+  position:relative;
+  width:54px;height:54px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 32% 25%, rgba(255,255,255,.14), transparent 60%),
+    linear-gradient(150deg,#262b31,#0c0e10);
+  border:2px solid rgba(255,255,255,.16);
+  box-shadow:inset 0 0 0 3px rgba(0,0,0,.35), 0 10px 24px -14px rgba(0,0,0,.9);
+  flex:0 0 auto;
+  transition:transform .35s var(--ease), border-color .35s var(--ease);
+}
+.logo::after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  border:1px solid rgba(245,158,11,.42);
+  pointer-events:none;
+}
+.brand:hover .logo{transform:rotate(-8deg) scale(1.04);border-color:rgba(245,158,11,.55)}
+
+.logo-text{
+  display:inline-flex;
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:.86rem;
+  letter-spacing:.03em;
+  line-height:1;
+  transform:translateY(1px);
+}
+.logo-text .s,
+.logo-text .h{color:var(--orange)}
+.logo-text .v{
+  color:var(--red);
+  text-shadow:0 0 14px rgba(227,36,43,.55);
+}
+
+.brand-copy{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:.98rem;
+  letter-spacing:.13em;
+  color:#fff;
+  text-transform:uppercase;
+}
+.brand-tag{
+  font-size:.63rem;
+  font-weight:500;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  margin-top:3px;
+}
+
+.nav{display:flex;align-items:center;gap:34px}
+.nav-list{display:flex;align-items:center;gap:32px}
+.nav-link{
+  position:relative;
+  padding:6px 0;
+  font:500 .94rem/1 var(--font-body);
+  color:rgba(255,255,255,.78);
+  transition:color .25s var(--ease);
+}
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-2px;
+  width:0;height:2px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  transition:width .3s var(--ease);
+}
+.nav-link:hover,
+.nav-link.is-active{color:#fff}
+.nav-link:hover::after,
+.nav-link.is-active::after{width:100%}
+
+.nav-mobile-cta{display:none}
+.header-cta{padding:13px 20px}
+
+.nav-toggle{
+  display:none;
+  width:46px;height:46px;
+  border:1px solid var(--dark-line-strong);
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+  position:relative;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  transition:background-color .25s var(--ease), border-color .25s var(--ease);
+}
+.nav-toggle:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
+.nav-toggle span:not(.sr-only){
+  display:block;
+  width:20px;height:2px;
+  border-radius:2px;
+  background:#fff;
+  transition:transform .3s var(--ease), opacity .2s var(--ease);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  padding:calc(var(--header-h) + 78px) 0 96px;
+  color:#fff;
+  background:
+    linear-gradient(100deg, rgba(10,11,13,.96) 0%, rgba(10,11,13,.88) 34%, rgba(10,11,13,.55) 66%, rgba(10,11,13,.82) 100%),
+    linear-gradient(180deg, rgba(10,11,13,.7) 0%, rgba(10,11,13,.35) 42%, rgba(10,11,13,.96) 100%),
+    url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  background-color:#0b0c0e;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(245,158,11,.20), transparent 42%),
+    radial-gradient(circle at 12% 92%, rgba(227,36,43,.18), transparent 44%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:74px 74px;
+  -webkit-mask-image:radial-gradient(circle at 70% 40%, #000 0%, transparent 72%);
+  mask-image:radial-gradient(circle at 70% 40%, #000 0%, transparent 72%);
+  opacity:.85;
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);
+  gap:clamp(38px,5vw,64px);
+  align-items:center;
+  width:100%;
+}
+
+.hero .eyebrow{color:var(--orange)}
+.hero .eyebrow::before{background:linear-gradient(90deg,var(--red),var(--orange))}
+
+.hero-title{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(2.35rem,5.4vw,4.4rem);
+  line-height:1.02;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+.hero-title .line-2{display:block}
+
+.hero-sub{
+  margin-top:26px;
+  max-width:620px;
+  font-size:clamp(1rem,1.25vw,1.14rem);
+  line-height:1.7;
+  color:rgba(255,255,255,.72);
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:36px;
+}
+
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 26px;
+  margin-top:30px;
+  padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.hero-trust li{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:.86rem;
+  color:rgba(255,255,255,.68);
+}
+.hero-trust svg{
+  width:15px;height:15px;
+  color:var(--orange);
+  flex:0 0 auto;
+}
+
+/* Hero capability panel */
+.hero-panel{
+  background:linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:var(--radius-lg);
+  padding:clamp(22px,2.6vw,30px);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--shadow-lg);
+  position:relative;
+}
+.hero-panel::before{
+  content:"";
+  position:absolute;
+  top:0;left:26px;right:26px;
+  height:3px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  border-radius:0 0 3px 3px;
+}
+.hero-panel__title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font:800 .72rem/1 var(--font-display);
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.58);
+  margin-bottom:22px;
+}
+.hero-panel__title::before{
+  content:"";
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 4px rgba(245,158,11,.18);
+  flex:0 0 auto;
+}
+.hero-panel ul{display:grid;gap:2px}
+.hero-panel li{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.hero-panel li:last-child{border-bottom:0;padding-bottom:0}
+.hero-panel li:first-child{padding-top:0}
+.hp-icon{
+  width:40px;height:40px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  background:linear-gradient(150deg, rgba(245,158,11,.2), rgba(227,36,43,.16));
+  border:1px solid rgba(245,158,11,.3);
+  color:var(--orange);
+}
+.hp-icon svg{width:20px;height:20px}
+.hero-panel strong{
+  display:block;
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:.94rem;
+  color:#fff;
+  letter-spacing:.01em;
+}
+.hero-panel span{display:block;font-size:.85rem;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* ============================================================
+   Stats bar
+   ============================================================ */
+.stats{
+  position:relative;
+  background:linear-gradient(180deg,var(--dark-2),var(--dark));
+  color:#fff;
+  padding:clamp(44px,5vw,64px) 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.stats::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--red) 0%, var(--red) 33%, var(--orange) 33%, var(--orange) 66%, #fff 66%, #fff 100%);
+  opacity:.9;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.stat{
+  padding:8px clamp(14px,2.5vw,30px);
+  border-left:1px solid rgba(255,255,255,.1);
+  text-align:center;
+}
+.stat:first-child{border-left:0}
+.stat-number{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#fff;
+  display:inline-flex;
+  align-items:baseline;
+  gap:2px;
+}
+.stat-suffix{color:var(--orange);font-size:.62em}
+.stat-label{
+  margin-top:10px;
+  font-size:.82rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  font-weight:500;
+}
+
+/* ============================================================
+   Services
+   ============================================================ */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+  gap:22px;
+}
+.service-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:clamp(26px,2.6vw,34px) clamp(22px,2.3vw,28px);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.service-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.service-card::after{
+  content:attr(data-index);
+  position:absolute;
+  top:20px;right:22px;
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:1.35rem;
+  line-height:1;
+  color:rgba(17,19,21,.07);
+  letter-spacing:-.04em;
+  transition:color .35s var(--ease);
+}
+.service-card:hover{
+  transform:translateY(-9px);
+  border-color:rgba(227,36,43,.45);
+  box-shadow:0 34px 60px -34px rgba(17,19,21,.5);
+}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover::after{color:rgba(227,36,43,.12)}
+
+.service-icon{
+  width:62px;height:62px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(150deg, var(--orange-soft), var(--red-soft));
+  border:1px solid rgba(245,158,11,.28);
+  color:var(--red);
+  margin-bottom:22px;
+  transition:background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease), border-color .35s var(--ease);
+}
+.service-icon svg{width:30px;height:30px}
+.service-card:hover .service-icon{
+  background:linear-gradient(150deg,var(--red),var(--red-dark));
+  border-color:var(--red);
+  color:#fff;
+  transform:rotate(-5deg) scale(1.05);
+}
+
+.service-title{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.18rem;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.service-desc{
+  font-size:.94rem;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+.service-list{display:grid;gap:10px;margin-top:auto}
+.service-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--ink-2);
+}
+.service-list li::before{
+  content:"";
+  width:7px;height:7px;
+  flex:0 0 auto;
+  margin-top:.42em;
+  border:2px solid var(--orange);
+  border-radius:2px;
+  transform:rotate(45deg);
+  transition:background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.service-card:hover .service-list li::before{background:var(--red);border-color:var(--red)}
+
+/* ============================================================
+   About
+   ============================================================ */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:clamp(40px,6vw,74px);
+  align-items:center;
+}
+.about-media{
+  position:relative;
+  z-index:1;
+}
+.about-media::before{
+  content:"";
+  position:absolute;
+  inset:22px -22px -22px 22px;
+  border:2px solid rgba(227,36,43,.35);
+  border-radius:var(--radius-lg);
+  z-index:-1;
+}
+.about-media::after{
+  content:"";
+  position:absolute;
+  inset:auto -12px -12px auto;
+  width:56%;
+  height:56%;
+  background:linear-gradient(140deg,rgba(245,158,11,.14),rgba(227,36,43,.06));
+  border-radius:var(--radius-lg);
+  z-index:-1;
+}
+.about-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  background:var(--dark-3);
+}
+.about-badge{
+  position:absolute;
+  left:clamp(16px,3vw,28px);
+  bottom:clamp(16px,3vw,28px);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 20px;
+  background:rgba(17,19,21,.88);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:#fff;
+  box-shadow:var(--shadow);
+  max-width:calc(100% - 32px);
+}
+.about-badge svg{width:26px;height:26px;color:var(--orange);flex:0 0 auto}
+.about-badge strong{
+  display:block;
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:1.35rem;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.about-badge span{
+  display:block;
+  font-size:.74rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.62);
+  margin-top:5px;
+}
+
+.about-copy .section-title{max-width:14ch}
+.about-copy p + p{margin-top:16px}
+.about-text{
+  margin-top:20px;
+  color:var(--muted);
+  font-size:1rem;
+}
+.about-features{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px 22px;
+  margin-top:30px;
+}
+.about-features li{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  font-size:.92rem;
+  font-weight:500;
+  color:var(--ink-2);
+}
+.about-features svg{
+  width:18px;height:18px;
+  color:var(--red);
+  flex:0 0 auto;
+  margin-top:.15em;
+}
+.about-cta{margin-top:34px}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact{
+  background:
+    radial-gradient(circle at 85% 12%, rgba(227,36,43,.14), transparent 42%),
+    radial-gradient(circle at 8% 88%, rgba(245,158,11,.10), transparent 46%),
+    var(--dark);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.contact::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:linear-gradient(180deg, #000, transparent 78%);
+  mask-image:linear-gradient(180deg, #000, transparent 78%);
+  pointer-events:none;
+}
+.contact .container{position:relative;z-index:2}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:clamp(30px,5vw,56px);
+  align-items:start;
+}
+
+.contact-form-card{
+  background:#fff;
+  color:var(--ink);
+  border-radius:var(--radius-lg);
+  padding:clamp(24px,3.2vw,40px);
+  box-shadow:var(--shadow-lg);
+}
+.contact-form-card h3{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:1.35rem;
+  letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.contact-form-card > p{
+  font-size:.92rem;
+  color:var(--muted);
+  margin-bottom:26px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field--full{grid-column:1/-1}
+.field label{
+  font:700 .72rem/1 var(--font-display);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#454d56;
+}
+.field label .req{color:var(--red)}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  font-family:var(--font-body);
+  font-size:.96rem;
+  color:var(--ink);
+  background:#fafbfc;
+  border:1.5px solid #dfe3e8;
+  border-radius:var(--radius-sm);
+  padding:13px 15px;
+  transition:border-color .22s var(--ease), box-shadow .22s var(--ease), background-color .22s var(--ease);
+  appearance:none;
+  -webkit-appearance:none;
+}
+.field textarea{resize:vertical;min-height:132px;line-height:1.6}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6873' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:16px;
+  padding-right:42px;
+  cursor:pointer;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  outline:none;
+  border-color:var(--red);
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(227,36,43,.12);
+}
+.field input::placeholder,
+.field textarea::placeholder{color:#9aa3ad}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea{
+  border-color:var(--red);
+  background:#fff6f6;
+}
+.field-error{
+  font-size:.76rem;
+  color:var(--red);
+  font-weight:500;
+  min-height:0;
+}
+
+.form-actions{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:16px;
+  margin-top:6px;
+}
+.form-note{
+  font-size:.76rem;
+  color:var(--muted);
+  max-width:280px;
+  line-height:1.5;
+}
+.form-success{
+  grid-column:1/-1;
+  display:none;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 18px;
+  border-radius:var(--radius-sm);
+  background:rgba(34,153,84,.09);
+  border:1px solid rgba(34,153,84,.3);
+  color:#1c6b3d;
+  font-size:.9rem;
+  font-weight:500;
+}
+.form-success.is-visible{display:flex}
+.form-success svg{width:20px;height:20px;flex:0 0 auto;margin-top:.1em}
+
+/* Contact details */
+.contact-info{display:grid;gap:14px}
+.info-item{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:17px 19px;
+  border:1px solid var(--dark-line);
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  transition:border-color .3s var(--ease), background-color .3s var(--ease), transform .3s var(--ease);
+}
+.info-item:hover{
+  border-color:rgba(245,158,11,.45);
+  background:rgba(255,255,255,.06);
+  transform:translateY(-3px);
+}
+.info-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  background:linear-gradient(150deg, rgba(245,158,11,.18), rgba(227,36,43,.14));
+  border:1px solid rgba(245,158,11,.28);
+  color:var(--orange);
+}
+.info-icon svg{width:21px;height:21px}
+.info-item h4{
+  font:800 .74rem/1 var(--font-display);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  margin-bottom:6px;
+}
+.info-item p,
+.info-item a{
+  font-size:.94rem;
+  color:#fff;
+  font-weight:500;
+  line-height:1.5;
+}
+.info-item a:hover{color:var(--orange)}
+.info-item small{
+  display:block;
+  font-size:.8rem;
+  color:rgba(255,255,255,.55);
+  margin-top:3px;
+  font-weight:400;
+}
+
+.map-frame{
+  margin-top:16px;
+  border:1px solid var(--dark-line);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--dark-3);
+  box-shadow:var(--shadow);
+}
+.map-frame iframe{
+  display:block;
+  width:100%;
+  height:250px;
+  border:0;
+  filter:grayscale(.25) contrast(1.05);
+}
+.map-link{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:7px;
+  margin-top:11px;
+  font-size:.8rem;
+  font-weight:500;
+  color:var(--orange);
+  transition:color .25s var(--ease);
+}
+.map-link:hover{color:#fff}
+.map-link svg{width:14px;height:14px}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer{
+  background:var(--dark-2);
+  color:rgba(255,255,255,.6);
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.footer-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.footer-brand .logo{width:40px;height:40px}
+.footer-brand .logo-text{font-size:.68rem}
+.footer-brand .logo::after{inset:4px}
+.footer-brand strong{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:.82rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.site-footer p{
+  font-size:.83rem;
+  text-align:right;
+}
+.site-footer a{color:var(--orange)}
+.site-footer a:hover{color:#fff}
+
+/* ============================================================
+   Scroll reveal animations
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+  will-change:opacity, transform;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:1080px){
+  .hero-inner{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:40px}
+  .about-grid{grid-template-columns:1fr;gap:52px}
+  .about-media{max-width:620px}
+}
+
+@media (max-width:940px){
+  :root{--header-h:70px}
+
+  .logo{width:47px;height:47px}
+  .logo-text{font-size:.75rem}
+  .brand-name{font-size:.88rem}
+  .brand-tag{font-size:.58rem}
+
+  .nav{
+    position:fixed;
+    top:var(--header-h);
+    left:0;right:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:18px clamp(18px,5vw,32px) 30px;
+    background:rgba(11,12,14,.985);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--dark-line);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.95);
+    max-height:calc(100vh - var(--header-h));
+    max-height:calc(100svh - var(--header-h));
+    overflow-y:auto;
+    transform:translateY(-115%);
+    opacity:0;
+    visibility:hidden;
+    transition:transform .42s var(--ease), opacity .3s var(--ease), visibility .3s;
+  }
+  .nav.is-open{transform:translateY(0);opacity:1;visibility:visible}
+  .nav-list{flex-direction:column;align-items:stretch;gap:0}
+  .nav-link{
+    display:block;
+    padding:15px 2px;
+    font-size:1rem;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-link::after{display:none}
+  .nav-mobile-cta{display:inline-flex;width:100%;margin-top:22px}
+  .header-cta{display:none}
+  .nav-toggle{display:inline-flex}
+
+  .hero{min-height:auto;padding:calc(var(--header-h) + 62px) 0 76px}
+  .hero-inner{grid-template-columns:1fr;gap:38px}
+  .hero-panel{max-width:600px;width:100%}
+
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:0}
+  .stat{padding:18px 12px;border-left:0}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+  .stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
+
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+}
+
+@media (max-width:620px){
+  .brand-tag{display:none}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{width:100%}
+  .hero-trust{gap:10px 18px}
+  .hero-trust li{font-size:.82rem}
+
+  .form-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .about-media::before{inset:14px -12px -12px 14px}
+  .about-media::after{display:none}
+  .about-badge{left:14px;bottom:14px;padding:13px 15px}
+
+  .footer-inner{flex-direction:column;text-align:center;justify-content:center}
+  .site-footer p{text-align:center}
+  .form-actions{flex-direction:column;align-items:stretch}
+  .form-actions .btn{width:100%}
+  .form-note{max-width:none}
+}
+
+/* ============================================================
+   Motion / contrast preferences
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{opacity:1 !important;transform:none !important}
+}
+</style>
+<noscript>
   <style>
-    :root {
-      --svh-red: #E3242B;     /* Rouge vif du "V" */
-      --svh-orange: #F59E0B;  /* Orange/Jaune du "S" et "H" */
-      --bg-dark: #111315;     /* Gris anthracite très sombre (aspect acier) */
-      --bg-card: #1A1D20;
-      --bg-light: #F4F5F7;    /* Gris très clair industriel */
-      --text-light: #F8F9FA;
-      --text-dark: #1F2937;
-      --text-muted: #9CA3AF;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* --- BARRE DE NAVIGATION --- */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(17, 19, 21, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--svh-orange);
-      z-index: 1000;
-      padding: 12px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Reproduction du logo SVH en CSS (remplaçable par une balise <img>) */
-    .logo-link {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-circle {
-      background: #ffffff;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 1.35rem;
-      letter-spacing: -1.5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    }
-
-    .logo-circle .s, .logo-circle .h { color: var(--svh-orange); }
-    .logo-circle .v { color: var(--svh-red); font-size: 1.55rem; transform: translateY(-1px); }
-
-    .logo-brand {
-      color: #ffffff;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-    }
-    .logo-brand span {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: color 0.25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--svh-orange);
-    }
-
-    .nav-cta {
-      background-color: var(--svh-red);
-      color: #fff !important;
-      padding: 10px 20px;
-      border-radius: 2px;
-      transition: background 0.25s !important;
-    }
-
-    .nav-cta:hover {
-      background-color: #c01b22 !important;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    /* --- HERO SECTION --- */
-    .hero-section {
-      position: relative;
-      min-height: 100vh;
-      padding: 120px 20px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(17, 19, 21, 0.93) 0%, rgba(17, 19, 21, 0.72) 100%);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 920px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(245, 158, 11, 0.15);
-      border-left: 3px solid var(--svh-orange);
-      color: var(--svh-orange);
-      padding: 6px 16px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 22px;
-    }
-
-    .hero-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 3.5rem;
-      color: var(--text-light);
-      text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
-    }
-
-    .text-red { color: var(--svh-red); }
-    .text-orange { color: var(--svh-orange); }
-
-    .hero-subtitle {
-      font-size: 1.18rem;
-      color: #D1D5DB;
-      margin: 0 auto 40px;
-      max-width: 720px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .btn {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 16px 34px;
-      border-radius: 2px;
-      text-transform: uppercase;
-      font-size: 0.92rem;
-      letter-spacing: 0.5px;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background-color: var(--svh-red);
-      color: #ffffff;
-      border: 2px solid var(--svh-red);
-    }
-
-    .btn-primary:hover {
-      background-color: transparent;
-      color: var(--svh-red);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--svh-orange);
-      border: 2px solid var(--svh-orange);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--svh-orange);
-      color: #111;
-    }
-
-    /* --- BARRE DE CHIFFRES CLÉS --- */
-    .stats-bar {
-      background-color: var(--bg-dark);
-      color: #fff;
-      padding: 45px 5%;
-      border-top: 3px solid var(--svh-red);
-      border-bottom: 1px solid #2d3136;
-    }
-
-    .stats-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-      text-align: center;
-    }
-
-    .stat-item h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.4rem;
-      color: var(--svh-orange);
-      margin-bottom: 5px;
-    }
-
-    .stat-item p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-
-    /* --- SECTIONS GÉNÉRALES --- */
-    .section-padding {
-      padding: 90px 5%;
-      max-width: 1250px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-tag {
-      color: var(--svh-red);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.3rem;
-      text-transform: uppercase;
-      color: var(--bg-dark);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 14px;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 75px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--svh-red) 50%, var(--svh-orange) 50%);
-    }
-
-    /* --- SECTION SERVICES (4 PÔLES) --- */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: #ffffff;
-      padding: 38px 28px;
-      border-radius: 2px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      border-bottom: 4px solid var(--bg-dark);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .service-card:hover {
-      transform: translateY(-7px);
-      border-bottom-color: var(--svh-orange);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-    }
-
-    .service-icon {
-      width: 58px;
-      height: 58px;
-      background-color: rgba(227, 36, 43, 0.08);
-      color: var(--svh-red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      border-left: 3px solid var(--svh-red);
-    }
-
-    .service-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      color: var(--bg-dark);
-    }
-
-    .service-card p {
-      color: #4B5563;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-
-    .service-list {
-      list-style: none;
-      border-top: 1px solid #E5E7EB;
-      padding-top: 14px;
-    }
-
-    .service-list li {
-      font-size: 0.88rem;
-      color: #374151;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .service-list li::before {
-      content: '▪';
-      color: var(--svh-orange);
-      font-size: 1.2rem;
-    }
-
-    /* --- SECTION À PROPOS / ATELIER --- */
-    .about-band {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      padding: 90px 5%;
-    }
-
-    .about-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about-text h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.2rem;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      line-height: 1.25;
-    }
-
-    .about-text p {
-      color: #D1D5DB;
-      margin-bottom: 20px;
-      font-size: 1.02rem;
-    }
-
-    .features-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .feature-box {
-      background: var(--bg-card);
-      padding: 16px;
-      border-left: 3px solid var(--svh-orange);
-    }
-
-    .feature-box h4 {
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .feature-box p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .about-image {
-      position: relative;
-    }
-
-    .about-image img {
-      width: 100%;
-      border-radius: 2px;
-      box-shadow: 15px 15px 0px var(--svh-red);
-      display: block;
-    }
-
-    /* --- SECTION CONTACT & CARTE --- */
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      background: #ffffff;
-      padding: 45px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      border-top: 4px solid var(--svh-red);
-    }
-
-    .contact-form h3, .contact-info h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      color: #374151;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 13px 15px;
-      border: 1px solid #D1D5DB;
-      border-radius: 2px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.2s;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--svh-orange);
-    }
-
-    .info-item {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 22px;
-      align-items: flex-start;
-    }
-
-    .info-badge {
-      background: rgba(245, 158, 11, 0.15);
-      color: var(--svh-orange);
-      padding: 10px;
-      border-radius: 2px;
-      font-weight: 700;
-    }
-
-    .info-item h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      color: var(--bg-dark);
-    }
-
-    .info-item p {
-      color: #4B5563;
-      font-size: 0.92rem;
-    }
-
-    .map-box {
-      margin-top: 25px;
-      width: 100%;
-      height: 230px;
-      border: 2px solid #E5E7EB;
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      background-color: #0B0C0E;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 35px 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid #222;
-    }
-
-    footer strong {
-      color: #fff;
-    }
-
-    /* --- RESPONSIVE DESIGN --- */
-    @media (max-width: 900px) {
-      .hero-title { font-size: 2.6rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-container, .contact-wrapper { grid-template-columns: 1fr; }
-      
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-dark);
-        padding: 25px 0;
-        border-bottom: 2px solid var(--svh-red);
-      }
-      .nav-links.active { display: flex; }
-    }
-
-    @media (max-width: 600px) {
-      .hero-title { font-size: 2rem; }
-      .hero-buttons { flex-direction: column; }
-      .btn { width: 100%; text-align: center; }
-      .stats-grid { grid-template-columns: 1fr; gap: 20px; }
-      .features-list { grid-template-columns: 1fr; }
-      .contact-wrapper { padding: 25px 20px; }
+    .reveal{opacity:1 !important;transform:none !important}
+    .nav-toggle{display:none !important}
+    @media (max-width:940px){
+      .nav{position:static;transform:none;opacity:1;visibility:visible;max-height:none;padding:0;background:none;border:0;box-shadow:none;overflow:visible}
+      .nav-list{flex-direction:row;flex-wrap:wrap;gap:16px}
+      .nav-link{border:0;padding:6px 0;font-size:.9rem}
+      .nav-mobile-cta{display:none}
+      .header-cta{display:inline-flex}
+      .header-inner{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px}
     }
   </style>
+</noscript>
 </head>
 <body>
+<a class="skip-link" href="#contenu">Aller au contenu principal</a>
 
-  <!-- BARRE DE NAVIGATION -->
-  <nav class="navbar">
-    <a href="#" class="logo-link">
-      <!-- Logo SVH fidèle à l'image (tu peux aussi mettre <img src="logo.jpg"> à la place) -->
-      <div class="logo-circle">
-        <span class="s">S</span><span class="v">V</span><span class="h">H</span>
-      </div>
-      <div class="logo-brand">
-        EURL SVH
-        <span>Ouled Moussa • Algérie</span>
-      </div>
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="haut">
+  <div class="container header-inner">
+    <a class="brand" href="#accueil">
+      <span class="logo" role="img" aria-label="SVH">
+        <span class="logo-text" aria-hidden="true"><span class="s">S</span><span class="v">V</span><span class="h">H</span></span>
+      </span>
+      <span class="brand-copy">
+        <span class="brand-name">EURL SVH</span>
+        <span class="brand-tag">Hydraulique · Usinage · Soudure</span>
+      </span>
+      <span class="sr-only">Accueil</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+      <ul class="nav-list">
+        <li><a class="nav-link is-active" href="#accueil" aria-current="true">Accueil</a></li>
+        <li><a class="nav-link" href="#expertises">Expertises</a></li>
+        <li><a class="nav-link" href="#a-propos">À propos</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn--primary nav-mobile-cta" href="#contact">Demander un devis</a>
+    </nav>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#services">Nos Services</a></li>
-      <li><a href="#atelier">L'Entreprise</a></li>
-      <li><a href="#contact" class="nav-cta">Demander un Devis</a></li>
-    </ul>
-  </nav>
+    <a class="btn btn--primary header-cta" href="#contact">Demander un devis</a>
 
-  <!-- HERO SECTION -->
-  <header id="accueil" class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Spécialiste Vérin Hydraulique & Maintenance</span>
-      <h1 class="hero-title">
-        L'Expertise <span class="text-red">Hydraulique</span><br> 
-        & <span class="text-orange">Mécanique</span> de Précision
-      </h1>
-      <p class="hero-subtitle">
-        Conception, usinage sur mesure, chaudronnerie et rénovation de systèmes hydrauliques pour les professionnels du BTP et de l'industrie à travers toute l'Algérie.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Demander un devis</a>
-        <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
-      </div>
-    </div>
-  </header>
+    <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
 
-  <!-- CHIFFRES CLÉS -->
-  <section class="stats-bar">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3>100%</h3>
-        <p>Fabrication & Réparation sur mesure</p>
-      </div>
-      <div class="stat-item">
-        <h3>58</h3>
-        <p>Wilayas couvertes (B2B)</p>
-      </div>
-      <div class="stat-item">
-        <h3>4 Pôles</h3>
-        <p>Hydraulique, Usinage, Soudure, Joints</p>
-      </div>
-      <div class="stat-item">
-        <h3>SAV</h3>
-        <p>Intervention en atelier & sur site</p>
-      </div>
-    </div>
-  </section>
+<main id="contenu">
 
-  <!-- SECTION SERVICES -->
-  <section id="services" class="section-padding">
-    <div class="section-header">
-      <span class="section-tag">Savoir-Faire Industriel</span>
-      <h2 class="section-title">Nos Domaines d'Intervention</h2>
-    </div>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="accueil">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Hydraulique · Usinage · Chaudronnerie — Algérie</p>
 
-    <div class="services-grid">
-      <!-- Service 1 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-        </div>
-        <h3>Hydraulique</h3>
-        <p>Prise en charge complète de vos équipements hydrauliques haute pression.</p>
-        <ul class="service-list">
-          <li>Fabrication & réparation de vérins</li>
-          <li>Rénovation de pompes et moteurs</li>
-          <li>Diagnostic de circuits hydrauliques</li>
-          <li>Passage au banc d'essai</li>
-        </ul>
-      </div>
+        <h1 class="hero-title reveal" data-delay="80">
+          L'Expertise <span class="accent-red">Hydraulique</span><br class="line-2">& <span class="accent-orange">Mécanique de Précision</span>
+        </h1>
 
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </div>
-        <h3>Usinage de Précision</h3>
-        <p>Usinage conventionnel et fabrication de pièces mécaniques selon plan ou modèle.</p>
-        <ul class="service-list">
-          <li>Tournage général & Fraisage</li>
-          <li>Rodage de tubes et fûts</li>
-          <li>Alésage en atelier et sur site</li>
-          <li>Rectification de tiges chromées</li>
-        </ul>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3>Chaudronnerie</h3>
-        <p>Travaux de soudure lourde et remise en état d'équipements de génie civil.</p>
-        <ul class="service-list">
-          <li>Soudage spécialisé haute résistance</li>
-          <li>Réparation de flèches de grues</li>
-          <li>Rechargement de godets & bennes</li>
-          <li>Conception de structures métalliques</li>
-        </ul>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
-        </div>
-        <h3>Pièces d'Étanchéité</h3>
-        <p>Usinage instantané de joints sur mesure pour réduire le temps d'arrêt de vos machines.</p>
-        <ul class="service-list">
-          <li>Joints hydrauliques et pneumatiques</li>
-          <li>Bagues de guidage et racleurs</li>
-          <li>Joints métalliques et composites</li>
-          <li>Adaptation toutes dimensions</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION ENTREPRISE -->
-  <section id="atelier" class="about-band">
-    <div class="about-container">
-      <div class="about-text">
-        <span class="section-tag">EURL SVH • Ouled Moussa</span>
-        <h2>Votre Partenaire Industriel de <span class="text-orange">Confiance</span></h2>
-        <p>
-          Basée à la Cité Kouadria Ouest à Ouled Moussa (Wilaya de Boumerdès), <strong>EURL SVH</strong> accompagne les entreprises nationales et multinationales dans le maintien en condition opérationnelle de leur parc matériel.
-        </p>
-        <p>
-          Notre maîtrise conjointe de l'usinage, de la chaudronnerie et de l'étanchéité nous permet de traiter l'intégralité de la réparation d'un vérin ou d'un organe mécanique sans sous-traitance, garantissant des délais courts et une fiabilité maximale.
+        <p class="hero-sub reveal" data-delay="160">
+          EURL SVH accompagne les industriels algériens dans la fabrication, la réparation
+          et la maintenance de pièces et systèmes mécaniques à haute exigence. De la pièce
+          unique à la petite série, notre atelier d'Ouled Moussa livre des solutions
+          fiables, traçables et durables.
         </p>
 
-        <div class="features-list">
-          <div class="feature-box">
-            <h4>Réactivité B2B</h4>
-            <p>Traitement rapide des urgences pour limiter vos arrêts de production.</p>
-          </div>
-          <div class="feature-box">
-            <h4>Équipe Mobile</h4>
-            <p>Possibilité d'alésage et de dépannage directement sur votre chantier.</p>
-          </div>
+        <div class="hero-actions reveal" data-delay="240">
+          <a class="btn btn--primary" href="#contact">
+            Demander un devis
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="#expertises">Découvrir nos expertises</a>
         </div>
+
+        <ul class="hero-trust reveal" data-delay="320">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Réponse sous 24h ouvrées
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Pièces sur plan &amp; petites séries
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Interventions dans les 58 wilayas
+          </li>
+        </ul>
       </div>
 
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Atelier d'usinage mécanique EURL SVH">
-      </div>
+      <aside class="hero-panel reveal" data-delay="380" aria-label="Points forts de l'entreprise">
+        <p class="hero-panel__title">Atelier intégré — Ouled Moussa</p>
+        <ul>
+          <li>
+            <span class="hp-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="8.2" width="11.6" height="7.6" rx="1.8"/><path d="M13.8 10.4h3.9a2.3 2.3 0 0 1 2.3 2.3V15"/><path d="M6.4 8.2V5.6M11.4 8.2V5.6M6.4 18.4v-2.6M11.4 18.4v-2.6"/><path d="M2.2 12H.9M20 8.4V6.3"/></svg>
+            </span>
+            <span>
+              <strong>Hydraulique industrielle</strong>
+              <span>Vérins, centrales, pompes et circuits haute pression.</span>
+            </span>
+          </li>
+          <li>
+            <span class="hp-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.2 5.2l1.5 1.5M17.3 17.3l1.5 1.5M18.8 5.2l-1.5 1.5M6.7 17.3l-1.5 1.5"/><circle cx="12" cy="12" r="7.3" stroke-dasharray="1.5 2.1"/></svg>
+            </span>
+            <span>
+              <strong>Usinage de précision</strong>
+              <span>Tournage, fraisage CNC et ajustage sur plan.</span>
+            </span>
+          </li>
+          <li>
+            <span class="hp-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6c2.6 2.9 5.3 5.3 5.3 8.7a5.3 5.3 0 0 1-10.6 0c0-1.9.8-3.3 2-4.8"/><path d="M12 21.4v-3.9"/><path d="M9.6 17.2h4.8"/></svg>
+            </span>
+            <span>
+              <strong>Chaudronnerie &amp; soudure</strong>
+              <span>Ensembles mécano-soudés, réservoirs et châssis.</span>
+            </span>
+          </li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <!-- SECTION CONTACT / DEVIS -->
-  <section id="contact" class="section-padding">
-    <div class="section-header">
-      <span class="section-tag">Un besoin technique ?</span>
-      <h2 class="section-title">Demander un Devis ou une Intervention</h2>
-    </div>
-
-    <div class="contact-wrapper">
-      <!-- Formulaire -->
-      <div class="contact-form">
-        <h3>Envoyez-nous votre demande</h3>
-        <form onsubmit="event.preventDefault(); alert('Votre demande a bien été préparée !');">
-          <div class="form-group">
-            <label>Nom / Entreprise *</label>
-            <input type="text" class="form-control" placeholder="Ex: ETP / Cosider / Nom complet" required>
-          </div>
-          <div class="form-group">
-            <label>Téléphone *</label>
-            <input type="tel" class="form-control" placeholder="Ex: 0550 00 00 00" required>
-          </div>
-          <div class="form-group">
-            <label>Type de prestation souhaitée</label>
-            <select class="form-control">
-              <option>Réparation / Fabrication de Vérin Hydraulique</option>
-              <option>Travaux d'Usinage (Tournage, Fraisage, Alésage)</option>
-              <option>Chaudronnerie / Soudure / Flèche de grue</option>
-              <option>Fabrication de Joints d'Étanchéité</option>
-              <option>Autre demande</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Détails techniques (Dimensions, panne, urgence...)</label>
-            <textarea class="form-control" rows="4" placeholder="Décrivez votre besoin..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande</button>
-        </form>
-      </div>
-
-      <!-- Coordonnées & Carte -->
-      <div class="contact-info">
-        <h3>Nos Coordonnées</h3>
-        
-        <div class="info-item">
-          <div class="info-badge">📍</div>
-          <div>
-            <h4>Atelier & Siège Social</h4>
-            <p>Cité Kouadria Ouest, Ouled Moussa<br>Wilaya de Boumerdès, Algérie</p>
-          </div>
+  <!-- ============================================================
+       STATS BAR
+       ============================================================ -->
+  <section class="stats" id="chiffres" aria-label="Chiffres clés">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat">
+          <p class="stat-number"><span class="stat-value" data-count="100">100</span><span class="stat-suffix">%</span></p>
+          <p class="stat-label">Sur mesure</p>
         </div>
-
-        <div class="info-item">
-          <div class="info-badge">📞</div>
-          <div>
-            <h4>Service Commercial & Technique</h4>
-            <p>Disponible du Samedi au Jeudi (8h00 - 17h00)</p>
-          </div>
+        <div class="stat">
+          <p class="stat-number"><span class="stat-value" data-count="58">58</span></p>
+          <p class="stat-label">Wilayas couvertes</p>
         </div>
-
-        <!-- Google Maps Intégrée centrée sur Ouled Moussa -->
-        <div class="map-box">
-          <iframe 
-            src="https://www.google.com/maps?q=Ouled+Moussa,+Boumerdes,+Algeria&output=embed" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-          </iframe>
+        <div class="stat">
+          <p class="stat-number"><span class="stat-value" data-count="4">4</span></p>
+          <p class="stat-label">Pôles d'expertise</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number"><span class="stat-value" data-count="24">24</span><span class="stat-suffix">h</span></p>
+          <p class="stat-label">Délai de réponse</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 <strong>EURL SVH (Spécialiste Vérin Hydraulique)</strong> - Ouled Moussa, Boumerdès. Tous droits réservés.</p>
-  </footer>
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section section--light" id="expertises">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow">Nos expertises</p>
+        <h2 class="section-title">Quatre métiers, un seul atelier</h2>
+        <p class="section-lead">
+          Cette intégration complète nous permet de réduire les délais, de maîtriser
+          la traçabilité des matériaux et de garantir un contrôle qualité à chaque étape,
+          du relevé de cotes à la livraison.
+        </p>
+      </div>
 
-  <!-- SCRIPT MENU MOBILE -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+      <div class="services-grid">
+        <!-- 01 — Hydraulique -->
+        <article class="service-card reveal" data-index="01" data-delay="0">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="8.2" width="11.6" height="7.6" rx="1.8"/><path d="M13.8 10.4h3.9a2.3 2.3 0 0 1 2.3 2.3V15"/><path d="M6.4 8.2V5.6M11.4 8.2V5.6M6.4 18.4v-2.6M11.4 18.4v-2.6"/><path d="M2.2 12H.9M20 8.4V6.3"/></svg>
+          </span>
+          <h3 class="service-title">Hydraulique</h3>
+          <p class="service-desc">
+            Conception, réparation et maintenance de vérins, centrales et circuits
+            hydrauliques haute pression, pour équipements mobiles et industriels.
+          </p>
+          <ul class="service-list">
+            <li>Vérins, pompes &amp; distributeurs</li>
+            <li>Centrales et circuits haute pression</li>
+            <li>Dépannage et remise en service sur site</li>
+          </ul>
+        </article>
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+        <!-- 02 — Usinage -->
+        <article class="service-card reveal" data-index="02" data-delay="90">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.2 5.2l1.5 1.5M17.3 17.3l1.5 1.5M18.8 5.2l-1.5 1.5M6.7 17.3l-1.5 1.5"/><circle cx="12" cy="12" r="7.3" stroke-dasharray="1.5 2.1"/></svg>
+          </span>
+          <h3 class="service-title">Usinage</h3>
+          <p class="service-desc">
+            Usinage de précision sur tour et fraiseuse CNC, pour pièces unitaires,
+            de rechange ou petites séries, à partir de plans et de relevés.
+          </p>
+          <ul class="service-list">
+            <li>Tournage &amp; fraisage CNC</li>
+            <li>Pièces de rechange sur plan</li>
+            <li>Rectification, alésage &amp; ajustage</li>
+          </ul>
+        </article>
+
+        <!-- 03 — Chaudronnerie -->
+        <article class="service-card reveal" data-index="03" data-delay="180">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8h17.6"/><path d="M6.4 20.8 10 13.1"/><path d="M10.7 11.5 9.2 8.6l3.6-4.1 2.9 2.9-4.1 3.6z"/><path d="M15.7 7.4h3.5a2.2 2.2 0 0 1 2.2 2.2v1.2"/><path d="M9.8 15.6 6.2 12.4l-2 2 3.5 3z"/><path d="M16.6 4.1l1.1-1.1M19.9 8.1l1.2-.5M12.3 3.2l.4-1.2"/></svg>
+          </span>
+          <h3 class="service-title">Chaudronnerie</h3>
+          <p class="service-desc">
+            Fabrication et soudure d'ensembles mécano-soudés, de charpentes métalliques,
+            de réservoirs et de châssis pour environnements exigeants.
+          </p>
+          <ul class="service-list">
+            <li>Soudure TIG, MIG &amp; ARC</li>
+            <li>Structures et ensembles mécano-soudés</li>
+            <li>Réservoirs, châssis &amp; supports</li>
+          </ul>
+        </article>
+
+        <!-- 04 — Joints d'étanchéité -->
+        <article class="service-card reveal" data-index="04" data-delay="270">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="5.4"/><circle cx="12" cy="12" r="2.1"/><path d="M12 3.4v2.4M12 18.2v2.4M3.4 12h2.4M18.2 12h2.4"/></svg>
+          </span>
+          <h3 class="service-title">Joints d'étanchéité</h3>
+          <p class="service-desc">
+            Fourniture et fabrication de joints sur mesure pour les circuits hydrauliques,
+            pneumatiques et les applications à forte contrainte thermique.
+          </p>
+          <ul class="service-list">
+            <li>Joints hydrauliques &amp; pneumatiques</li>
+            <li>Joints toriques, spi &amp; plats</li>
+            <li>Matériaux haute température</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section class="section section--white" id="a-propos">
+    <div class="container about-grid">
+      <div class="about-media reveal">
+        <img
+          class="about-img"
+          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
+          alt="Technicien en train de meuler une pièce métallique dans un atelier industriel"
+          decoding="async"
+          width="1200" height="900">
+        <div class="about-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6c2.6 2.9 5.3 5.3 5.3 8.7a5.3 5.3 0 0 1-10.6 0c0-1.9.8-3.3 2-4.8"/><path d="M12 21.4v-3.9"/><path d="M9.6 17.2h4.8"/></svg>
+          <div>
+            <strong>4</strong>
+            <span>Pôles intégrés sous un même toit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow reveal">Qui sommes-nous</p>
+        <h2 class="section-title reveal" data-delay="80">Un partenaire industriel, pas un simple sous-traitant</h2>
+
+        <p class="about-text reveal" data-delay="140">
+          Basée à Ouled Moussa, dans la wilaya de Boumerdès, EURL SVH réunit sous un
+          même toit les métiers de l'hydraulique, de l'usinage de précision et de la
+          chaudronnerie-soudure. Cette maîtrise complète nous permet de prendre en
+          charge des projets complexes, de la conception à la mise en service.
+        </p>
+        <p class="about-text reveal" data-delay="200">
+          Nous collaborons avec les secteurs de l'agroalimentaire, du BTP, de l'énergie,
+          de la pétrochimie et de la mécanique générale. Chaque intervention est suivie,
+          documentée et validée par un contrôle qualité rigoureux.
+        </p>
+
+        <ul class="about-features reveal" data-delay="260">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Bureau d'études &amp; DAO
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Contrôle qualité à chaque étape
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Matériaux certifiés &amp; tracés
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Livraison dans toute l'Algérie
+          </li>
+        </ul>
+
+        <div class="about-cta reveal" data-delay="320">
+          <a class="btn btn--primary" href="#contact">
+            Parler à un technicien
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="section section--dark contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section-title">Un besoin technique ? Parlons-en.</h2>
+        <p class="section-lead">
+          Décrivez votre projet ou votre panne. Nos techniciens vous répondent sous
+          24h ouvrées avec une première analyse et un devis détaillé.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-card reveal" data-delay="80">
+          <h3>Demander un devis</h3>
+          <p>Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+
+          <form id="contact-form" class="form-grid" novalidate>
+            <div class="field">
+              <label for="name">Nom &amp; prénom <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Votre nom complet" autocomplete="name" required>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="company">Société</label>
+              <input type="text" id="company" name="company" placeholder="Nom de votre entreprise" autocomplete="organization">
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail professionnel <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="nom@societe.dz" autocomplete="email" required>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+213 ..." autocomplete="tel">
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field field--full">
+              <label for="service">Expertise concernée</label>
+              <select id="service" name="service">
+                <option value="">Sélectionnez un service</option>
+                <option value="hydraulique">Hydraulique</option>
+                <option value="usinage">Usinage de précision</option>
+                <option value="chaudronnerie">Chaudronnerie &amp; soudure</option>
+                <option value="joints">Joints d'étanchéité</option>
+                <option value="autre">Autre demande</option>
+              </select>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="field field--full">
+              <label for="message">Votre projet <span class="req">*</span></label>
+              <textarea id="message" name="message" placeholder="Décrivez votre besoin : type de pièce, quantité, délai, lieu d'intervention..." required></textarea>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="m8.2 12.4 2.7 2.7 5.2-5.6"/></svg>
+              <span>Merci, votre demande a bien été envoyée. Notre équipe vous répond sous 24h ouvrées.</span>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn--primary" type="submit" id="submit-btn">
+                Envoyer ma demande
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </button>
+              <p class="form-note">Vos informations restent confidentielles et ne sont utilisées que pour vous recontacter.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Details + map -->
+        <div class="contact-info reveal" data-delay="160">
+          <div class="info-item">
+            <span class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>
+            </span>
+            <div>
+              <h4>Adresse</h4>
+              <p>Zone d'activité, Ouled Moussa<br>Boumerdès 35000, Algérie</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.4 3.5h3l1.6 4-2 1.2a12 12 0 0 0 6.3 6.3l1.2-2 4 1.6v3a1.6 1.6 0 0 1-1.7 1.6A16.5 16.5 0 0 1 4.8 5.2 1.6 1.6 0 0 1 6.4 3.5Z"/></svg>
+            </span>
+            <div>
+              <h4>Téléphone</h4>
+              <!-- Coordonnées de démonstration : remplacez le numéro et l'e-mail par ceux de l'entreprise. -->
+              <p><a href="tel:+213000000000">+213 (0) 000 00 00 00</a></p>
+              <small>À remplacer par votre numéro commercial</small>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="5" width="18.4" height="14" rx="2.2"/><path d="m3.4 6.6 8.6 6.2 8.6-6.2"/></svg>
+            </span>
+            <div>
+              <h4>E-mail</h4>
+              <p><a href="mailto:contact@eurl-svh.dz">contact@eurl-svh.dz</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M12 7.2V12l3.4 2"/></svg>
+            </span>
+            <div>
+              <h4>Horaires d'ouverture</h4>
+              <p>Dim – Jeu : 08h00 – 17h00</p>
+              <small>Samedi : 08h00 – 12h00 · Vendredi fermé</small>
+            </div>
+          </div>
+
+          <div class="map-frame">
+            <iframe
+              title="Localisation de EURL SVH à Ouled Moussa, Boumerdès, Algérie"
+              src="https://www.google.com/maps?q=Ouled%20Moussa%2C%20Boumerd%C3%A8s%2C%20Alg%C3%A9rie&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ouled+Moussa,+Boumerd%C3%A8s,+Alg%C3%A9rie" target="_blank" rel="noopener noreferrer">
+            Ouvrir l'itinéraire dans Google Maps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo" aria-hidden="true">
+        <span class="logo-text"><span class="s">S</span><span class="v">V</span><span class="h">H</span></span>
+      </span>
+      <strong>EURL SVH</strong>
+    </div>
+    <p>&copy; <span id="year">2026</span> EURL SVH — Hydraulique, usinage &amp; chaudronnerie. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ----------------------------------------------------------
+     1. Header : état scrollé + année dynamique
+     ---------------------------------------------------------- */
+  var header = document.querySelector('.site-header');
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  function onScroll() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ----------------------------------------------------------
+     2. Menu mobile
+     ---------------------------------------------------------- */
+  var nav = document.getElementById('nav-principale');
+  var toggle = document.querySelector('.nav-toggle');
+
+  function closeNav() {
+    if (!nav || !toggle) return;
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+    document.body.classList.remove('nav-open');
+  }
+
+  if (nav && toggle) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+      document.body.classList.toggle('nav-open', isOpen);
     });
 
-    // Fermer le menu mobile après un clic sur un lien
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeNav);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 940) closeNav();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     3. Scroll reveal (IntersectionObserver)
+     ---------------------------------------------------------- */
+  var revealElements = document.querySelectorAll('.reveal');
+
+  function showAllReveals() {
+    revealElements.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    showAllReveals();
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealElements.forEach(function (el) {
+      var delay = el.getAttribute('data-delay');
+      if (delay) el.style.transitionDelay = delay + 'ms';
+      revealObserver.observe(el);
+    });
+
+    /* Sécurité : rend visible tout élément déjà dans le viewport au chargement */
+    window.setTimeout(function () {
+      revealElements.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('is-visible');
+      });
+    }, 120);
+  }
+
+  /* ----------------------------------------------------------
+     4. Compteurs statistiques
+     ---------------------------------------------------------- */
+  var counters = document.querySelectorAll('.stat-value[data-count]');
+
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var duration = 1500;
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) window.requestAnimationFrame(step);
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  if (counters.length) {
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      /* On laisse les valeurs finales écrites dans le HTML */
+    } else {
+      var counterObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.6 });
+
+      counters.forEach(function (el) { counterObserver.observe(el); });
+    }
+  }
+
+  /* ----------------------------------------------------------
+     5. Lien de navigation actif
+     ---------------------------------------------------------- */
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+  /* On n'observe que les sections réellement présentes dans le menu,
+     pour éviter de retirer le lien actif au passage des sections sans lien. */
+  sections = Array.prototype.filter.call(sections, function (section) {
+    return document.querySelector('.nav-link[href="#' + section.id + '"]');
+  });
+
+  function setActiveLink(id) {
+    navLinks.forEach(function (link) {
+      var isActive = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActiveLink(entry.target.id);
+      });
+    }, {
+      rootMargin: '-45% 0px -50% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(function (section) { sectionObserver.observe(section); });
+  }
+
+  /* ----------------------------------------------------------
+     6. Formulaire de contact
+     ---------------------------------------------------------- */
+  var form = document.getElementById('contact-form');
+  var successBox = document.getElementById('form-success');
+  var submitBtn = document.getElementById('submit-btn');
+
+  function getError(field) {
+    var value = (field.value || '').trim();
+
+    if (field.id === 'name' && value === '') return 'Veuillez indiquer votre nom.';
+    if (field.id === 'email') {
+      if (value === '') return 'Veuillez indiquer votre e-mail professionnel.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Adresse e-mail invalide.';
+    }
+    if (field.id === 'phone' && value !== '' && !/^[+0-9\s().-]{6,}$/.test(value)) {
+      return 'Numéro de téléphone invalide.';
+    }
+    if (field.id === 'message' && value === '') return 'Veuillez décrire votre besoin.';
+    return '';
+  }
+
+  function validateField(field) {
+    var wrap = field.closest('.field');
+    var errorEl = wrap ? wrap.querySelector('.field-error') : null;
+    var message = getError(field);
+
+    if (wrap) wrap.classList.toggle('has-error', Boolean(message));
+    field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (errorEl) errorEl.textContent = message;
+
+    return !message;
+  }
+
+  if (form) {
+    var fields = form.querySelectorAll('input, select, textarea');
+
+    fields.forEach(function (field) {
+      field.addEventListener('blur', function () { validateField(field); });
+      field.addEventListener('input', function () {
+        var wrap = field.closest('.field');
+        if (wrap && wrap.classList.contains('has-error')) validateField(field);
+        if (successBox) successBox.classList.remove('is-visible');
       });
     });
-  </script>
 
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var firstInvalid = null;
+
+      fields.forEach(function (field) {
+        if (!validateField(field) && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      /* --- Point d'intégration backend / CRM ---
+         Remplacez ce bloc par un fetch() vers votre API, Formspree,
+         Make, Zapier ou l'outil de votre choix. */
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        submitBtn.textContent = 'Envoi en cours...';
+      }
+
+      window.setTimeout(function () {
+        if (successBox) successBox.classList.add('is-visible');
+        form.reset();
+
+        /* On efface les éventuels états d'erreur restants après un envoi réussi */
+        fields.forEach(function (field) {
+          var wrap = field.closest('.field');
+          if (wrap) wrap.classList.remove('has-error');
+          var errorEl = wrap ? wrap.querySelector('.field-error') : null;
+          if (errorEl) errorEl.textContent = '';
+          field.setAttribute('aria-invalid', 'false');
+        });
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.innerHTML = 'Envoyer ma demande <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
+        }
+        if (successBox) successBox.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+      }, 700);
+    });
+  }
+})();
+</script>
 </body>
-</html>
+</html> 
