@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EURL SVH | Spécialiste Vérin Hydraulique & Usinage - Ouled Moussa</title>
+  
+  <!-- Importation des polices Google : Montserrat (titres robustes) et Roboto (textes techniques) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --svh-red: #E3242B;     /* Rouge vif du "V" */
+      --svh-orange: #F59E0B;  /* Orange/Jaune du "S" et "H" */
+      --bg-dark: #111315;     /* Gris anthracite très sombre (aspect acier) */
+      --bg-card: #1A1D20;
+      --bg-light: #F4F5F7;    /* Gris très clair industriel */
+      --text-light: #F8F9FA;
+      --text-dark: #1F2937;
+      --text-muted: #9CA3AF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- BARRE DE NAVIGATION --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(17, 19, 21, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--svh-orange);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Reproduction du logo SVH en CSS (remplaçable par une balise <img>) */
+    .logo-link {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      background: #ffffff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: -1.5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .logo-circle .s, .logo-circle .h { color: var(--svh-orange); }
+    .logo-circle .v { color: var(--svh-red); font-size: 1.55rem; transform: translateY(-1px); }
+
+    .logo-brand {
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .logo-brand span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--svh-orange);
+    }
+
+    .nav-cta {
+      background-color: var(--svh-red);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 2px;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover {
+      background-color: #c01b22 !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(17, 19, 21, 0.93) 0%, rgba(17, 19, 21, 0.72) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 920px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      border-left: 3px solid var(--svh-orange);
+      color: var(--svh-orange);
+      padding: 6px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .text-red { color: var(--svh-red); }
+    .text-orange { color: var(--svh-orange); }
+
+    .hero-subtitle {
+      font-size: 1.18rem;
+      color: #D1D5DB;
+      margin: 0 auto 40px;
+      max-width: 720px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .btn {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 16px 34px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      letter-spacing: 0.5px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--svh-red);
+      color: #ffffff;
+      border: 2px solid var(--svh-red);
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--svh-red);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--svh-orange);
+      border: 2px solid var(--svh-orange);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--svh-orange);
+      color: #111;
+    }
+
+    /* --- BARRE DE CHIFFRES CLÉS --- */
+    .stats-bar {
+      background-color: var(--bg-dark);
+      color: #fff;
+      padding: 45px 5%;
+      border-top: 3px solid var(--svh-red);
+      border-bottom: 1px solid #2d3136;
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: var(--svh-orange);
+      margin-bottom: 5px;
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    /* --- SECTIONS GÉNÉRALES --- */
+    .section-padding {
+      padding: 90px 5%;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-tag {
+      color: var(--svh-red);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      color: var(--bg-dark);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 14px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--svh-red) 50%, var(--svh-orange) 50%);
+    }
+
+    /* --- SECTION SERVICES (4 PÔLES) --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      padding: 38px 28px;
+      border-radius: 2px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border-bottom: 4px solid var(--bg-dark);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      border-bottom-color: var(--svh-orange);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      background-color: rgba(227, 36, 43, 0.08);
+      color: var(--svh-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      border-left: 3px solid var(--svh-red);
+    }
+
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      color: var(--bg-dark);
+    }
+
+    .service-card p {
+      color: #4B5563;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .service-list {
+      list-style: none;
+      border-top: 1px solid #E5E7EB;
+      padding-top: 14px;
+    }
+
+    .service-list li {
+      font-size: 0.88rem;
+      color: #374151;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-list li::before {
+      content: '▪';
+      color: var(--svh-orange);
+      font-size: 1.2rem;
+    }
+
+    /* --- SECTION À PROPOS / ATELIER --- */
+    .about-band {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 90px 5%;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .about-text p {
+      color: #D1D5DB;
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+    }
+
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .feature-box {
+      background: var(--bg-card);
+      padding: 16px;
+      border-left: 3px solid var(--svh-orange);
+    }
+
+    .feature-box h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .feature-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 2px;
+      box-shadow: 15px 15px 0px var(--svh-red);
+      display: block;
+    }
+
+    /* --- SECTION CONTACT & CARTE --- */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      background: #ffffff;
+      padding: 45px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--svh-red);
+    }
+
+    .contact-form h3, .contact-info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #D1D5DB;
+      border-radius: 2px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--svh-orange);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+
+    .info-badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--svh-orange);
+      padding: 10px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    .info-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--bg-dark);
+    }
+
+    .info-item p {
+      color: #4B5563;
+      font-size: 0.92rem;
+    }
+
+    .map-box {
+      margin-top: 25px;
+      width: 100%;
+      height: 230px;
+      border: 2px solid #E5E7EB;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #0B0C0E;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    footer strong {
+      color: #fff;
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 900px) {
+      .hero-title { font-size: 2.6rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-container, .contact-wrapper { grid-template-columns: 1fr; }
+      
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        padding: 25px 0;
+        border-bottom: 2px solid var(--svh-red);
+      }
+      .nav-links.active { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+      .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+      .features-list { grid-template-columns: 1fr; }
+      .contact-wrapper { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE DE NAVIGATION -->
+  <nav class="navbar">
+    <a href="#" class="logo-link">
+      <!-- Logo SVH fidèle à l'image (tu peux aussi mettre <img src="logo.jpg"> à la place) -->
+      <div class="logo-circle">
+        <span class="s">S</span><span class="v">V</span><span class="h">H</span>
+      </div>
+      <div class="logo-brand">
+        EURL SVH
+        <span>Ouled Moussa • Algérie</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#services">Nos Services</a></li>
+      <li><a href="#atelier">L'Entreprise</a></li>
+      <li><a href="#contact" class="nav-cta">Demander un Devis</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header id="accueil" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Spécialiste Vérin Hydraulique & Maintenance</span>
+      <h1 class="hero-title">
+        L'Expertise <span class="text-red">Hydraulique</span><br> 
+        & <span class="text-orange">Mécanique</span> de Précision
+      </h1>
+      <p class="hero-subtitle">
+        Conception, usinage sur mesure, chaudronnerie et rénovation de systèmes hydrauliques pour les professionnels du BTP et de l'industrie à travers toute l'Algérie.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+        <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHIFFRES CLÉS -->
+  <section class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Fabrication & Réparation sur mesure</p>
+      </div>
+      <div class="stat-item">
+        <h3>58</h3>
+        <p>Wilayas couvertes (B2B)</p>
+      </div>
+      <div class="stat-item">
+        <h3>4 Pôles</h3>
+        <p>Hydraulique, Usinage, Soudure, Joints</p>
+      </div>
+      <div class="stat-item">
+        <h3>SAV</h3>
+        <p>Intervention en atelier & sur site</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION SERVICES -->
+  <section id="services" class="section-padding">
+    <div class="section-header">
+      <span class="section-tag">Savoir-Faire Industriel</span>
+      <h2 class="section-title">Nos Domaines d'Intervention</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>Hydraulique</h3>
+        <p>Prise en charge complète de vos équipements hydrauliques haute pression.</p>
+        <ul class="service-list">
+          <li>Fabrication & réparation de vérins</li>
+          <li>Rénovation de pompes et moteurs</li>
+          <li>Diagnostic de circuits hydrauliques</li>
+          <li>Passage au banc d'essai</li>
+        </ul>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>Usinage de Précision</h3>
+        <p>Usinage conventionnel et fabrication de pièces mécaniques selon plan ou modèle.</p>
+        <ul class="service-list">
+          <li>Tournage général & Fraisage</li>
+          <li>Rodage de tubes et fûts</li>
+          <li>Alésage en atelier et sur site</li>
+          <li>Rectification de tiges chromées</li>
+        </ul>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Chaudronnerie</h3>
+        <p>Travaux de soudure lourde et remise en état d'équipements de génie civil.</p>
+        <ul class="service-list">
+          <li>Soudage spécialisé haute résistance</li>
+          <li>Réparation de flèches de grues</li>
+          <li>Rechargement de godets & bennes</li>
+          <li>Conception de structures métalliques</li>
+        </ul>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3>Pièces d'Étanchéité</h3>
+        <p>Usinage instantané de joints sur mesure pour réduire le temps d'arrêt de vos machines.</p>
+        <ul class="service-list">
+          <li>Joints hydrauliques et pneumatiques</li>
+          <li>Bagues de guidage et racleurs</li>
+          <li>Joints métalliques et composites</li>
+          <li>Adaptation toutes dimensions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION ENTREPRISE -->
+  <section id="atelier" class="about-band">
+    <div class="about-container">
+      <div class="about-text">
+        <span class="section-tag">EURL SVH • Ouled Moussa</span>
+        <h2>Votre Partenaire Industriel de <span class="text-orange">Confiance</span></h2>
+        <p>
+          Basée à la Cité Kouadria Ouest à Ouled Moussa (Wilaya de Boumerdès), <strong>EURL SVH</strong> accompagne les entreprises nationales et multinationales dans le maintien en condition opérationnelle de leur parc matériel.
+        </p>
+        <p>
+          Notre maîtrise conjointe de l'usinage, de la chaudronnerie et de l'étanchéité nous permet de traiter l'intégralité de la réparation d'un vérin ou d'un organe mécanique sans sous-traitance, garantissant des délais courts et une fiabilité maximale.
+        </p>
+
+        <div class="features-list">
+          <div class="feature-box">
+            <h4>Réactivité B2B</h4>
+            <p>Traitement rapide des urgences pour limiter vos arrêts de production.</p>
+          </div>
+          <div class="feature-box">
+            <h4>Équipe Mobile</h4>
+            <p>Possibilité d'alésage et de dépannage directement sur votre chantier.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Atelier d'usinage mécanique EURL SVH">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION CONTACT / DEVIS -->
+  <section id="contact" class="section-padding">
+    <div class="section-header">
+      <span class="section-tag">Un besoin technique ?</span>
+      <h2 class="section-title">Demander un Devis ou une Intervention</h2>
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- Formulaire -->
+      <div class="contact-form">
+        <h3>Envoyez-nous votre demande</h3>
+        <form onsubmit="event.preventDefault(); alert('Votre demande a bien été préparée !');">
+          <div class="form-group">
+            <label>Nom / Entreprise *</label>
+            <input type="text" class="form-control" placeholder="Ex: ETP / Cosider / Nom complet" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone *</label>
+            <input type="tel" class="form-control" placeholder="Ex: 0550 00 00 00" required>
+          </div>
+          <div class="form-group">
+            <label>Type de prestation souhaitée</label>
+            <select class="form-control">
+              <option>Réparation / Fabrication de Vérin Hydraulique</option>
+              <option>Travaux d'Usinage (Tournage, Fraisage, Alésage)</option>
+              <option>Chaudronnerie / Soudure / Flèche de grue</option>
+              <option>Fabrication de Joints d'Étanchéité</option>
+              <option>Autre demande</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Détails techniques (Dimensions, panne, urgence...)</label>
+            <textarea class="form-control" rows="4" placeholder="Décrivez votre besoin..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande</button>
+        </form>
+      </div>
+
+      <!-- Coordonnées & Carte -->
+      <div class="contact-info">
+        <h3>Nos Coordonnées</h3>
+        
+        <div class="info-item">
+          <div class="info-badge">📍</div>
+          <div>
+            <h4>Atelier & Siège Social</h4>
+            <p>Cité Kouadria Ouest, Ouled Moussa<br>Wilaya de Boumerdès, Algérie</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-badge">📞</div>
+          <div>
+            <h4>Service Commercial & Technique</h4>
+            <p>Disponible du Samedi au Jeudi (8h00 - 17h00)</p>
+          </div>
+        </div>
+
+        <!-- Google Maps Intégrée centrée sur Ouled Moussa -->
+        <div class="map-box">
+          <iframe 
+            src="https://www.google.com/maps?q=Ouled+Moussa,+Boumerdes,+Algeria&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <strong>EURL SVH (Spécialiste Vérin Hydraulique)</strong> - Ouled Moussa, Boumerdès. Tous droits réservés.</p>
+  </footer>
+
+  <!-- SCRIPT MENU MOBILE -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Fermer le menu mobile après un clic sur un lien
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
